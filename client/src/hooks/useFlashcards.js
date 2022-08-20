@@ -30,12 +30,11 @@ export default function useFlashcards() {
         if (success) {
           getFlashcards()
         } 
-      }, [getFlashcards])
+      }, [])
 
     return {
         flashcards,
-        addFlashcard,
-        getFlashcards, 
+        addFlashcard, 
         deleteFlashcard
     }
 }

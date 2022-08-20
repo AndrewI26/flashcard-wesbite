@@ -4,6 +4,7 @@ export default function Study(props) {
     const {flashcards} = props
     const [flashcardIndex, setFlashcardIndex] = useState(0)
     const [showFront, setShowFront] = useState(true)
+    const [difficulties, setDifficulties] = useState([false, false, false])
 
     const indexedFlashcard = flashcards[flashcardIndex]
 
@@ -26,6 +27,28 @@ export default function Study(props) {
         flipFlashcard()
     }
 
+    const difficultiesArray = ['Easy', 'Moderate', 'Hard']
+    const radioButtons = difficulties.map((difficulty, index) => {
+        return <>
+            <label className='study-radio-label'>
+                <input type='radio' name='radio' checked={difficulty} id={index} onClick={toggleRadio} className='study-radio'/>
+                <p>{difficultiesArray[index]}</p>
+            </label>
+            
+        </>
+    })
+
+    function toggleRadio(e) {
+        const pressedRadioIndex = e.target.id
+        setDifficulties(prevDifficulties => {
+            const updatedArray = prevDifficulties.map((difficulty, index) => {
+                return (index == pressedRadioIndex ? !difficulty : false)
+            })
+            return updatedArray
+        })
+        
+    }
+
     let display
     if (indexedFlashcard?.front && indexedFlashcard?.back) {
         display = 
@@ -43,11 +66,13 @@ export default function Study(props) {
                 <p>?</p>
             </div>
             <p className='study-info'>{indexedFlashcard.back}</p>
+            {radioButtons}
             <button onClick={nextFlashcard} className='study-btn'>Next card</button>
         </div>
     } else {
         display = <h1>Add some flashcards to study!</h1>
     }
+
     return (
         <div className='study-container'>
             {display}

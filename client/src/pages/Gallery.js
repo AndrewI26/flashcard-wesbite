@@ -2,12 +2,8 @@ import { useEffect } from "react"
 import GalleryCard from "../components/GalleryCard"
 
 export default function Gallery(props) {
-    const {flashcards, getFlashcards, deleteFlashcard} = props
+    const {flashcards, deleteFlashcard} = props
     
-    useEffect(() => {
-        getFlashcards()
-    }, [])
-
     let cardElements
     if (flashcards !== undefined) {
         cardElements = flashcards.map(flashcard => {

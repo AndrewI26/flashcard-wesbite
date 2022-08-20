@@ -12,7 +12,7 @@ import Gallery from './pages/Gallery'
 import Nav from './components/Nav'
 
 const App = () => {
-    const {flashcards, addFlashcard, getFlashcards, deleteFlashcard} = useFlashcards()
+    const {flashcards, addFlashcard, deleteFlashcard} = useFlashcards()
     
     
     const app = 
@@ -20,10 +20,10 @@ const App = () => {
         <Router>
             <Nav />
                 <Routes>
-                    <Route path='/' element={<p>home</p>}/>
+                    <Route path='/' element={<p>Click on a page to get started</p>}/>
                     <Route path='/study' element={<Study flashcards={flashcards}/>}/>
                     <Route path='/add' element={<Add addFlashcard={addFlashcard}/>}/>
-                    <Route path='/gallery' element={<Gallery flashcards={flashcards} getFlashcards={getFlashcards} deleteFlashcard={deleteFlashcard}/>}/>
+                    <Route path='/gallery' element={<Gallery flashcards={flashcards} deleteFlashcard={deleteFlashcard}/>}/>
                 </Routes>
         </Router>
     </div>

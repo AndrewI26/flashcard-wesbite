@@ -70,6 +70,16 @@ body {
     text-align: justify;
     margin: 20px 90px;
 }
+.study-radio {
+    accent-color: var(--black); 
+}
+.study-radio-label {
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    align-items: center;
+}
+
 .study-btn {
     width: 325px;
     height: 35px;
