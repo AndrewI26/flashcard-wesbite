@@ -22,20 +22,34 @@ export default function Study(props) {
         setShowFront(prevShowFront => !prevShowFront)
     }
 
+    function resetDifficulties() {
+        setDifficulties([false, false, false])
+    }
+
     function nextFlashcard() {
         incrementFlashcard()
+        resetDifficulties()
         flipFlashcard()
     }
 
     const difficultiesArray = ['Easy', 'Moderate', 'Hard']
     const radioButtons = difficulties.map((difficulty, index) => {
-        return <>
-            <label className='study-radio-label'>
-                <input type='radio' name='radio' checked={difficulty} id={index} onClick={toggleRadio} className='study-radio'/>
-                <p>{difficultiesArray[index]}</p>
-            </label>
-            
-        </>
+        if (difficultiesArray[index] !== 'Moderate') {
+            return <>
+                <label className='study-radio-label'>
+                    <input type='radio' name='radio' checked={difficulty} id={index} onClick={toggleRadio} className='study-radio'/>
+                    <p className='study-radio-title'>{difficultiesArray[index]}</p>
+                </label>   
+            </>
+        } else {
+            return <div className='middle'>
+                <label className='study-radio-label'>
+                    <input type='radio' name='radio' checked={difficulty} id={index} onClick={toggleRadio} className='study-radio'/>
+                    <p className='study-radio-title'>{difficultiesArray[index]}</p>
+                </label>   
+            </div>
+        }
+        
     })
 
     function toggleRadio(e) {
@@ -66,7 +80,7 @@ export default function Study(props) {
                 <p>?</p>
             </div>
             <p className='study-info'>{indexedFlashcard.back}</p>
-            {radioButtons}
+            <div className='study-radio-container'>{radioButtons}</div>
             <button onClick={nextFlashcard} className='study-btn'>Next card</button>
         </div>
     } else {

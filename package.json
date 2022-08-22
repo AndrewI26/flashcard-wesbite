@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "concurrently \"npm run start --prefix client\" \"npm run start --prefix server\"",
-    "deploy": "concurrently \"npm run build --prefix client\" \"npm run start --prefix server\""
+    "deploy": "concurrently \"npm run build --prefix client\" \"npm run start --prefix server\"",
+    "install deps": "concurrently \"npm i --prefix client\" \" npm i --prefix server \""
   },
   "keywords": [],
   "author": "",
