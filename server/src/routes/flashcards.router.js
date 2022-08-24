@@ -5,7 +5,7 @@ const {
     httpGetSingleFlashcard,
     httpAddNewFlashcard,
     httpDeleteFlashcard
-} = require('./flashcards.controller')
+} = require('./flashcards.controller').default
 
 const flashcardsRouter = express.Router()
 

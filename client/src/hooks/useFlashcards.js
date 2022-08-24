@@ -11,7 +11,7 @@ export default function useFlashcards() {
 
     const getFlashcards = useCallback(async () => {
         await httpGetFlashcards()
-            .then(response => setFlashcards(response))
+          .then(response => setFlashcards(response))
     }, [])
 
     const addFlashcard = useCallback(async (flashcardObject) => {
@@ -19,8 +19,8 @@ export default function useFlashcards() {
     
         const success = response.ok;
         if (success) {
-          getFlashcards();
-      }}, [getFlashcards])
+          await getFlashcards();
+      }}, [])
 
     const deleteFlashcard = useCallback(async (id) => {
         const response = await httpDeleteFlashcard(id);

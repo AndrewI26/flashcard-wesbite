@@ -1,8 +1,5 @@
 // user = FlashcardUser
 // p = UT9QMBocZLJmMqqm
-
-
-
 const http = require('http')
 const mongoose = require('mongoose')
 

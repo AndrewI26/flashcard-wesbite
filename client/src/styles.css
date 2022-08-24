@@ -59,6 +59,9 @@ body {
     flex-direction: column;
     align-items: center;
 }
+.study-nofc {
+    margin: 200px;
+}
 .study-qmark-front {
     border-radius: 50%;
     background-color: var(--black);

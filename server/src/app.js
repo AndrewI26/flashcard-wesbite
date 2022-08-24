@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 
 const flashcardsRouter = require('./routes/flashcards.router') 
-const flashcardsController = require('./routes/flashcards.controller')
+const flashcardsController = require('./routes/flashcards.controller').default
 
 const app = express()
 

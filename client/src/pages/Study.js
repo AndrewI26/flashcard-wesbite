@@ -84,7 +84,7 @@ export default function Study(props) {
             <button onClick={nextFlashcard} className='study-btn'>Next card</button>
         </div>
     } else {
-        display = <h1>Add some flashcards to study!</h1>
+        display = <div className='study-container'><h1 className='study-nofc'>Add some flashcards to study!</h1></div>
     }
 
     return (
