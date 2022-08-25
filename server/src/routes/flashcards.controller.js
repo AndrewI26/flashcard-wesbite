@@ -1,4 +1,4 @@
-import { getAllFlashcards, getSingleFlashcard, existsWithId, addNewFlashcard, deleteFlashcard } from '../models/flashcards.model'
+const { getAllFlashcards, getSingleFlashcard, existsWithId, addNewFlashcard, deleteFlashcard } = require('../models/flashcards.model')
 
 async function httpGetAllFlashcards(req, res) {
     return res.status(200).json(await getAllFlashcards())
@@ -41,7 +41,7 @@ async function httpDeleteFlashcard(req, res) {
     return res.status(200).json()
 }
 
-export default {
+module.exports = {
     httpGetAllFlashcards,
     httpGetSingleFlashcard,
     httpAddNewFlashcard,
