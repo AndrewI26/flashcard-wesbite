@@ -1,4 +1,3 @@
-const { get } = require('../app')
 const flashcardsDatabase = require('./flashcards.mongo')
 
 const DEFAULT_FLASHCARD_ID = 0
