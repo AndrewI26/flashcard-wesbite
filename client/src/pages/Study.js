@@ -4,7 +4,6 @@ export default function Study(props) {
     const {flashcards} = props
     const [flashcardIndex, setFlashcardIndex] = useState(0)
     const [showFront, setShowFront] = useState(true)
-    const [difficulties, setDifficulties] = useState([false, false, false])
 
     const indexedFlashcard = flashcards[flashcardIndex]
 
@@ -22,45 +21,9 @@ export default function Study(props) {
         setShowFront(prevShowFront => !prevShowFront)
     }
 
-    function resetDifficulties() {
-        setDifficulties([false, false, false])
-    }
-
     function nextFlashcard() {
         incrementFlashcard()
-        resetDifficulties()
         flipFlashcard()
-    }
-
-    const difficultiesArray = ['Easy', 'Moderate', 'Hard']
-    const radioButtons = difficulties.map((difficulty, index) => {
-        if (difficultiesArray[index] !== 'Moderate') {
-            return <>
-                <label className='study-radio-label'>
-                    <input type='radio' name='radio' checked={difficulty} id={index} onClick={toggleRadio} className='study-radio'/>
-                    <p className='study-radio-title'>{difficultiesArray[index]}</p>
-                </label>   
-            </>
-        } else {
-            return <div className='middle'>
-                <label className='study-radio-label'>
-                    <input type='radio' name='radio' checked={difficulty} id={index} onClick={toggleRadio} className='study-radio'/>
-                    <p className='study-radio-title'>{difficultiesArray[index]}</p>
-                </label>   
-            </div>
-        }
-        
-    })
-
-    function toggleRadio(e) {
-        const pressedRadioIndex = e.target.id
-        setDifficulties(prevDifficulties => {
-            const updatedArray = prevDifficulties.map((difficulty, index) => {
-                return (index == pressedRadioIndex ? !difficulty : false)
-            })
-            return updatedArray
-        })
-        
     }
 
     let display
@@ -80,7 +43,6 @@ export default function Study(props) {
                 <p>?</p>
             </div>
             <p className='study-info'>{indexedFlashcard.back}</p>
-            <div className='study-radio-container'>{radioButtons}</div>
             <button onClick={nextFlashcard} className='study-btn'>Next card</button>
         </div>
     } else {

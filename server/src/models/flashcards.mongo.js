@@ -12,14 +12,6 @@ const flashcardsSchema = new mongoose.Schema({
     back: {
         type: String,
         required: true
-    }, 
-    timesStudied: {
-        type: Number,
-        requried: false
-    }, 
-    dueDate: {
-        type: Date,
-        required: false
     }
 })
 
