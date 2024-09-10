@@ -1,12 +1,14 @@
-// user = FlashcardUser
-// p = UT9QMBocZLJmMqqm
+require('dotenv').config();
+
+const user = process.env.user;
+const p = process.env.p;
 const http = require('http')
 const mongoose = require('mongoose')
 
 const app = require('./app')
 
 const PORT = process.env.PORT || 8000
-const MONGO_URL = 'mongodb+srv://FlashcardUser:UT9QMBocZLJmMqqm@cluster0.dphjb4g.mongodb.net/?retryWrites=true&w=majority'
+const MONGO_URL = `mongodb+srv://${user}:${p}@cluster0.wd1uu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
 
 const server = http.createServer(app)
 
